@@ -1,0 +1,28 @@
+---
+const PROJECTS = [
+  {
+    title: "Image Viewer MVC",
+    description:
+      "Aplicación de visualización de imágenes con patrón de diseño MVC.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+    github: "https://github.com/Kilamper/image-viewer-mvc",
+    tags: ["Java"],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, image, link, github, tags }) => (
+    <article>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <ul>
+        {tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+      <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+    </article>
+  ))
+}
