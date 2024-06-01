@@ -1,28 +1,88 @@
 ---
+import Java from "./icons/Java.astro";
+import HTML from "./icons/HTML.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Angular from "./icons/Angular.astro";
+import SocialBox from "./SocialBox.astro";
+
+const TAGS = {
+  JAVA: {
+    name: "Java",
+    class: "bg-orange-200 text-orange-700",
+    icon: Java,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-orange-600",
+    icon: HTML,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-400",
+    icon: JavaScript,
+  },
+};
 const PROJECTS = [
   {
     title: "Image Viewer MVC",
     description:
-      "Aplicación de visualización de imágenes con patrón de diseño MVC.",
-    image: "https://via.placeholder.com/300x200",
+      "Aplicación de visualización de imágenes con patrón de diseño MVC en Java.",
+    image: "projects/image-viewer.webp",
     link: "#",
+    download:
+      "https://github.com/Kilamper/image-viewer-mvc/releases/download/v1.0.1/image-viewer-mvc.jar",
     github: "https://github.com/Kilamper/image-viewer-mvc",
-    tags: ["Java"],
+    tags: [TAGS.JAVA],
+  },
+  {
+    title: "Money Calculator",
+    description: "Conversor de monedas con API de cambio de divisas en Java.",
+    image: "projects/money-calculator.webp",
+    link: "#",
+    download:
+      "https://github.com/Kilamper/money-calculator/releases/download/v1.0.1/money-calculator.jar",
+    github: "https://github.com/Kilamper/money-calculator",
+    tags: [TAGS.JAVA],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ title, description, image, link, github, tags }) => (
-    <article>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <ul>
-        {tags.map((tag) => (
-          <li>{tag}</li>
-        ))}
-      </ul>
-      <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
-    </article>
-  ))
+  PROJECTS.map(
+    ({ title, description, image, link, download, github, tags }) => (
+      <article class="flex gap-x-6 mb-8">
+        <img
+          class="rounded shadow-2xl shadow-white/10 w-[540px]"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+        <div class="flex flex-col gap-y-2">
+          <h3 class="text-2xl font-semibold text-blue-500 mb-2">{title}</h3>
+          <ul class="flex gapx-x-4 flex-row">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full justify-center items-center ${tag.class} px-2 py-1 font-medium`}
+                >
+                  <tag.icon class="size-6" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-lg mb-2">{description}</p>
+          <nav class="flex gap-x-4">
+            <SocialBox href={github}>
+              <i class="fa-brands fa-github" />
+              Code
+            </SocialBox>
+            <SocialBox href={download}>
+              <i class="fa-solid fa-download" />
+              Download
+            </SocialBox>
+          </nav>
+        </div>
+      </article>
+    )
+  )
 }
