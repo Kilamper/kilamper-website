@@ -1,0 +1,32 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="opacity-80 m-4 mt-16 w-full mx-auto lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+>
+  <div class="w-full max-w-screen-xl flex md:items-center justify-between py-4">
+    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
+      >© {currentYear}
+      <a
+        href="https://github.com/Kilamper"
+        target="_blank"
+        class="hover:underline">kilamper</a
+      >
+    </span>
+    <ul
+      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+    >
+      <li>
+        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+      </li>
+      <li>
+        <a
+          id="contacto"
+          href="mailto:cloneforce99@flounderfantasy.com"
+          class="hover:underline">Contacto</a
+        >
+      </li>
+    </ul>
+  </div>
+</footer>

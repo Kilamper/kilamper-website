@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>

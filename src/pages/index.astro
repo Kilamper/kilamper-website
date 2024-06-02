@@ -4,21 +4,25 @@ import Card from "../components/Card.astro";
 import Badge from "../components/SocialBox.astro";
 import SocialBox from "../components/SocialBox.astro";
 import Projects from "../components/Projects.astro";
+import Glitch from "../components/icons/Glitch.astro";
 ---
 
 <Layout
   title="Kilamper Portfolio | Ingenierio de Software y Desarrollador Web"
   description="Portfolio de Kilian Armas Pérez, estudiante de la Universidad de Las Palmas de Gran Canaria. Ingeniero de Software y Desarrollador Web."
 >
-  <main class="px-4 w-full lg:w-[920px] mx-auto">
-    <section id="#top" class="pt-40 pb-10 flex">
+  <main class="flex flex-col px-4 w-full lg:w-[920px] mx-auto gap-y-32">
+    <section class="pt-40 flex">
       <article>
+        <h2
+          class="text-white text-xl md:text-2xl lg:text-3xl font-semibold pb-4 lg:pb-6"
+        >
+          Hello there
+        </h2>
         <h1
           class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex justify-center flex-row gap-x-4 pb-6 lg:pb-10"
         >
-          Hello there, soy Kilamper <div
-            class="flex justify-center items-center"
-          >
+          Soy Kilamper <div class="flex justify-center items-center">
             <span
               class="bg-blue-100 text-blue-800 text-base font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
               >Estudiando</span
@@ -38,15 +42,39 @@ import Projects from "../components/Projects.astro";
             href="https://www.linkedin.com/in/kilian-armas-p%C3%A9rez-728590164/"
             ><i class="fa-brands fa-linkedin"></i>Linkedin</SocialBox
           >
+          <SocialBox href="https://glitch.com/@kilamper"
+            ><Glitch
+              class="size-4 fill-black dark:fill-white"
+            />Glitch</SocialBox
+          >
         </nav>
       </article>
       <div class="bg-blue-500 w-12"></div>
     </section>
-    <section id="#projects" class="py-40">
-      <h2 class="text-3xl font-bold text-white pb-4">
+    <section id="projects" class="">
+      <h2 class="text-3xl font-semibold text-white pb-4">
         <i class="fa-solid fa-code mr-2"></i>Proyectos
       </h2>
       <Projects />
     </section>
+    <sectio id="about" class="pb-40">
+      <h2 class="text-3xl font-semibold text-white pb-4">
+        <i class="fa-regular fa-address-card mr-2"></i>Sobre mí
+      </h2>
+      <article class="flex gap-x-10">
+        <p class="text-white text-lg">
+          Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería
+          Informática en la Universidad de Las Palmas de Gran Canaria.
+          Actualmente me encuentro en el último año de la carrera.
+          <br />
+          <br />
+          Me apasiona el desarrollo web y la programación en general. Me gusta aprender
+          cosas nuevas y estar al día en las últimas tecnologías. Siempre estoy buscando
+          nuevos proyectos en los que trabajar y aprender.
+          <br />
+        </p>
+        <img src="Kilian Armas.jpg" alt="Kilian Armas" class="w-40 h-40 mt-8" />
+      </article>
+    </sectio>
   </main>
 </Layout>

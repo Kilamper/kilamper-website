@@ -1,25 +1,37 @@
 ---
-import Java from "./icons/Java.astro";
-import HTML from "./icons/HTML.astro";
-import JavaScript from "./icons/JavaScript.astro";
-import Angular from "./icons/Angular.astro";
 import SocialBox from "./SocialBox.astro";
+
+import Java from "./icons/Java.astro";
+import Angular from "./icons/Angular.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Firebase from "./icons/Firebase.astro";
+import Fixer from "./icons/Fixer.astro";
 
 const TAGS = {
   JAVA: {
     name: "Java",
-    class: "bg-orange-200 text-orange-700",
+    class: "bg-orange-100 text-orange-700",
     icon: Java,
   },
-  HTML: {
-    name: "HTML",
-    class: "bg-orange-600",
-    icon: HTML,
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-red-100 text-red-700",
+    icon: Angular,
   },
-  JAVASCRIPT: {
-    name: "JavaScript",
-    class: "bg-yellow-400",
-    icon: JavaScript,
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-sky-100 text-sky-700",
+    icon: Tailwind,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-yellow-100 text-yellow-700",
+    icon: Firebase,
+  },
+  FIXER: {
+    name: "Fixer API",
+    class: "bg-blue-100 text-blue-700",
+    icon: Fixer,
   },
 };
 const PROJECTS = [
@@ -28,7 +40,6 @@ const PROJECTS = [
     description:
       "Aplicación de visualización de imágenes con patrón de diseño MVC en Java.",
     image: "projects/image-viewer.webp",
-    link: "#",
     download:
       "https://github.com/Kilamper/image-viewer-mvc/releases/download/v1.0.1/image-viewer-mvc.jar",
     github: "https://github.com/Kilamper/image-viewer-mvc",
@@ -38,11 +49,18 @@ const PROJECTS = [
     title: "Money Calculator",
     description: "Conversor de monedas con API de cambio de divisas en Java.",
     image: "projects/money-calculator.webp",
-    link: "#",
     download:
       "https://github.com/Kilamper/money-calculator/releases/download/v1.0.1/money-calculator.jar",
     github: "https://github.com/Kilamper/money-calculator",
-    tags: [TAGS.JAVA],
+    tags: [TAGS.JAVA, TAGS.FIXER],
+  },
+  {
+    title: "LabrArte Website",
+    description:
+      "Sitio web de la tienda de artesanía LabrArte con Angular, Tailwind CSS y Firebase.",
+    image: "projects/labrarte-website.webp",
+    github: "https://github.com/Kilamper/web-page",
+    tags: [TAGS.ANGULAR, TAGS.TAILWIND, TAGS.FIREBASE],
   },
 ];
 ---
@@ -50,19 +68,23 @@ const PROJECTS = [
 {
   PROJECTS.map(
     ({ title, description, image, link, download, github, tags }) => (
-      <article class="flex gap-x-6 mb-8">
-        <img
-          class="rounded shadow-2xl shadow-white/10 w-[540px]"
-          src={image}
-          alt={`Captura de pantalla del proyecto ${title}`}
-        />
-        <div class="flex flex-col gap-y-2">
+      <article class="flex flex-col md:flex-row gap-x-6 gap-y-4 mb-8">
+        <div class="w-full md:w-[540px] transition duration-500 ease-in-out shadow-xl overflow-clip rounded-xl md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img
+            alt={title}
+            class="object-cover object-top w-full h-fit transition duration-500 hover:scale-110"
+            loading="lazy"
+            src={image}
+          />
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg flex flex-col gap-y-2">
           <h3 class="text-2xl font-semibold text-blue-500 mb-2">{title}</h3>
-          <ul class="flex gapx-x-4 flex-row">
+          <ul class="flex gapx-x-4">
             {tags.map((tag) => (
               <li>
                 <span
-                  class={`flex gap-x-2 rounded-full justify-center items-center ${tag.class} px-2 py-1 font-medium`}
+                  class={`flex gap-x-2 rounded-full justify-center items-center ${tag.class} px-2 py-1 mr-2 font-medium`}
                 >
                   <tag.icon class="size-6" />
                   {tag.name}
@@ -76,10 +98,12 @@ const PROJECTS = [
               <i class="fa-brands fa-github" />
               Code
             </SocialBox>
-            <SocialBox href={download}>
-              <i class="fa-solid fa-download" />
-              Download
-            </SocialBox>
+            {download && (
+              <SocialBox href={download}>
+                <i class="fa-solid fa-download" />
+                Download
+              </SocialBox>
+            )}
           </nav>
         </div>
       </article>
