@@ -1,13 +1,16 @@
-<header class="fixed flex justify-between items-center py-5 w-full px mx-auto">
-  <img
-    class="rounded-full size-12"
-    src="https://avatars.githubusercontent.com/u/73082382?v=4"
-    alt="Profile Image"
-  />
-  <nav class="flex flex-row gap-x-10">
-    <a href="/">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navItems = [
+  { href: "#", text: "Inicio" },
+  { href: "#projects", text: "Proyectos" },
+  { href: "#about", text: "Sobre mí" },
+  { href: "#contact", text: "Contacto" },
+];
+---
+
+<header class="fixed flex justify-center items-center py-5 w-full px mx-auto">
+  <nav class="flex flex-row gap-x-10 dark:bg-gray-600 rounded-full px-4 py-2">
+    {navItems.map((item) => <a href={item.href}>{item.text}</a>)}
   </nav>
 </header>

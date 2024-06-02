@@ -20,13 +20,14 @@ import Glitch from "../components/icons/Glitch.astro";
           Hello there
         </h2>
         <h1
-          class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex justify-center flex-row gap-x-4 pb-6 lg:pb-10"
+          class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
         >
           Soy Kilamper <div class="flex justify-center items-center">
-            <span
-              class="bg-blue-100 text-blue-800 text-base font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-              >Estudiando</span
-            >
+            <img
+              class="rounded-full size-24"
+              src="https://avatars.githubusercontent.com/u/73082382?v=4"
+              alt="Profile Image"
+            />
           </div>
         </h1>
         <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
@@ -49,7 +50,6 @@ import Glitch from "../components/icons/Glitch.astro";
           >
         </nav>
       </article>
-      <div class="bg-blue-500 w-12"></div>
     </section>
     <section id="projects" class="">
       <h2 class="text-3xl font-semibold text-white pb-4">
@@ -73,7 +73,11 @@ import Glitch from "../components/icons/Glitch.astro";
           nuevos proyectos en los que trabajar y aprender.
           <br />
         </p>
-        <img src="Kilian Armas.jpg" alt="Kilian Armas" class="w-40 h-40 mt-8" />
+        <img
+          src="Kilian Armas.jpg"
+          alt="Kilian Armas"
+          class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+        />
       </article>
     </sectio>
   </main>
