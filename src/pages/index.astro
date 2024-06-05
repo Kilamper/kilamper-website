@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/SocialBox.astro";
 import SocialBox from "../components/SocialBox.astro";
 import Projects from "../components/Projects.astro";
 import Glitch from "../components/icons/Glitch.astro";
+import Skills from "../components/Skills.astro";
 ---
 
 <Layout
@@ -15,14 +14,14 @@ import Glitch from "../components/icons/Glitch.astro";
     <section class="pt-40 flex">
       <article>
         <h2
-          class="text-white text-xl md:text-2xl lg:text-3xl font-semibold pb-4 lg:pb-6"
+          class="text-gray-900 dark:text-white text-xl md:text-2xl lg:text-3xl font-semibold pb-4 lg:pb-6"
         >
           Hello there
         </h2>
         <h1
-          class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
+          class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
         >
-          Soy Kilamper <div class="flex justify-center items-center">
+          Soy Kilian Armas <div class="flex justify-center items-center">
             <img
               class="rounded-full size-24"
               src="https://avatars.githubusercontent.com/u/73082382?v=4"
@@ -30,7 +29,9 @@ import Glitch from "../components/icons/Glitch.astro";
             />
           </div>
         </h1>
-        <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+        <h2
+          class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-black dark-text-white"
+        >
           <span class="text-blue-500 font-medium"
             >Estudiante de Ingeniería Informática en la ULPGC.</span
           > Ingeniero de Software y Desarrollador Web de las Islas Canarias, España.
@@ -45,27 +46,27 @@ import Glitch from "../components/icons/Glitch.astro";
           >
           <SocialBox href="https://glitch.com/@kilamper"
             ><Glitch
-              class="size-4 fill-black dark:fill-white"
+              class="size-4 fill-dark dark:fill-white"
             />Glitch</SocialBox
           >
         </nav>
       </article>
     </section>
     <section id="projects" class="">
-      <h2 class="text-3xl font-semibold text-white pb-4">
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
         <i class="fa-solid fa-code mr-2"></i>Proyectos
       </h2>
       <Projects />
     </section>
-    <sectio id="about" class="pb-40">
-      <h2 class="text-3xl font-semibold text-white pb-4">
+    <section id="about" class="pb-40">
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
         <i class="fa-regular fa-address-card mr-2"></i>Sobre mí
       </h2>
-      <article class="flex gap-x-10">
-        <p class="text-white text-lg">
+      <article class="flex flex-col md:flex-row gap-x-10">
+        <p class="text-black dark:text-white text-lg lg:w-2/3">
           Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería
           Informática en la Universidad de Las Palmas de Gran Canaria.
-          Actualmente me encuentro en el último año de la carrera.
+          Actualmente me encuentro a punto de pasar al último año de la carrera.
           <br />
           <br />
           Me apasiona el desarrollo web y la programación en general. Me gusta aprender
@@ -73,12 +74,22 @@ import Glitch from "../components/icons/Glitch.astro";
           nuevos proyectos en los que trabajar y aprender.
           <br />
         </p>
-        <img
-          src="Kilian Armas.jpg"
-          alt="Kilian Armas"
-          class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
-        />
+        <div
+          class="order-1 object-cover bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 rounded-2xl aspect-square lg:w-1/3 md:order-2 lg:p-2 w-64 h-full rotate-3 mt-6"
+        >
+          <img
+            src="Kilian_Armas.png"
+            alt="Kilian Armas"
+            class="rounded-2xl bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-white dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+          />
+        </div>
       </article>
-    </sectio>
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
+        <i class="fa-solid fa-gears mr-2"></i>Habilidades
+      </h2>
+      <ul class="flex gap-x-4">
+        <Skills />
+      </ul>
+    </section>
   </main>
 </Layout>

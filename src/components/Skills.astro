@@ -1,0 +1,30 @@
+---
+import Java from "./icons/Java.astro";
+import Angular from "./icons/Angular.astro";
+import Tailwind from "./icons/Tailwind.astro";
+
+const SKILLS = [
+  {
+    name: "Java",
+    icon: Java,
+  },
+  {
+    name: "Angular",
+    icon: Angular,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: Tailwind,
+  },
+];
+---
+
+{
+  SKILLS.map((skill) => (
+    <li class="flex flex-col justify-center items-center text-center">
+      <div title={skill.name}>
+        <skill.icon class="size-12" title={skill.name} />
+      </div>
+    </li>
+  ))
+}
