@@ -11,17 +11,20 @@ import Skills from "../components/Skills.astro";
   description="Porfolio de Kilian Armas Pérez, estudiante de la Universidad de Las Palmas de Gran Canaria. Ingeniero de Software y Desarrollador Web."
 >
   <main class="flex flex-col px-4 w-full lg:w-[920px] mx-auto gap-y-32">
-    <section class="pt-40 flex">
+    <section class="pt-40 pb-10 flex">
       <article>
         <h2
           class="text-gray-900 dark:text-white text-xl md:text-2xl lg:text-3xl font-semibold pb-4 lg:pb-6"
+          data-section="main"
+          data-value="title"
         >
-          Hello there
+          Hola
         </h2>
         <h1
           class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
         >
-          Soy Kilian Armas <div class="flex justify-center items-center">
+          <span data-section="main" data-value="name">Soy Kilian Armas</span
+          ><div class="flex justify-center items-center">
             <img
               class="rounded-full size-24"
               src="https://avatars.githubusercontent.com/u/73082382?v=4"
@@ -32,9 +35,15 @@ import Skills from "../components/Skills.astro";
         <h2
           class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-black dark:text-white"
         >
-          <span class="text-blue-500 font-medium"
-            >Estudiante de Ingeniería Informática en la ULPGC.</span
-          > Ingeniero de Software y Desarrollador Web de las Islas Canarias, España.
+          <span
+            class="text-blue-500 font-medium"
+            data-section="main"
+            data-value="subtitle"
+            >Estudiante de Ingeniería Informática en la ULPGC.
+          </span><span data-section="main" data-value="description"
+            >Ingeniero de Software y Desarrollador Web de las Islas Canarias,
+            España.</span
+          >
         </h2>
         <nav class="flex flex-wrap gap-4 mt-8">
           <SocialBox href="https://github.com/Kilamper"
@@ -54,28 +63,45 @@ import Skills from "../components/Skills.astro";
     </section>
     <section id="projects" class="">
       <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
-        <i class="fa-solid fa-code mr-2"></i>Proyectos
+        <i class="fa-solid fa-code mr-2"></i><span
+          data-section="projects"
+          data-value="title">Proyectos</span
+        >
       </h2>
       <Projects />
     </section>
     <section id="about" class="pb-40">
       <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
-        <i class="fa-regular fa-address-card mr-2"></i>Sobre mí
+        <i class="fa-regular fa-address-card mr-2"></i><span
+          data-section="about"
+          data-value="title">Sobre mí</span
+        >
       </h2>
       <article class="flex flex-col md:flex-row gap-x-10">
-        <p class="text-black dark:text-white text-lg lg:w-2/3">
-          Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería
-          Informática en la Universidad de Las Palmas de Gran Canaria.
-          Actualmente me encuentro a punto de pasar al último año de la carrera.
-          <br />
-          <br />
-          Me apasiona el desarrollo web y la programación en general. Me gusta aprender
-          cosas nuevas y estar al día en las últimas tecnologías. Siempre estoy buscando
-          nuevos proyectos en los que trabajar y aprender.
-          <br />
-        </p>
+        <div class="flex flex-col gap-8 lg:w-2/3">
+          <p
+            class="text-black dark:text-white text-lg"
+            data-section="about"
+            data-value="description1"
+          >
+            Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería
+            Informática en la Universidad de Las Palmas de Gran Canaria.
+            Actualmente me encuentro a punto de pasar al último año de la
+            carrera.
+          </p>
+          <p
+            class="text-black dark:text-white text-lg"
+            data-section="about"
+            data-value="description2"
+          >
+            Me apasiona el desarrollo web y la programación en general. Me gusta
+            aprender cosas nuevas y estar al día en las últimas tecnologías.
+            Siempre estoy buscando nuevos proyectos en los que trabajar y
+            aprender.
+          </p>
+        </div>
         <div
-          class="order-1 object-cover bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 rounded-2xl aspect-square lg:w-1/3 md:order-2 lg:p-2 w-64 h-full rotate-3 mt-6"
+          class="self-center order-1 object-cover bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 rounded-2xl aspect-square lg:w-1/3 md:order-2 lg:p-2 w-64 h-full rotate-3 mt-6 mb-20 lg:mb-6"
         >
           <img
             src="Kilian_Armas.png"
@@ -84,8 +110,13 @@ import Skills from "../components/Skills.astro";
           />
         </div>
       </article>
-      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
-        <i class="fa-solid fa-gears mr-2"></i>Habilidades
+      <h2
+        class="text-3xl font-semibold text-gray-900 dark:text-white pb-6 mt-10"
+      >
+        <i class="fa-solid fa-gears mr-2"></i><span
+          data-section="about"
+          data-value="skills">Habilidades</span
+        >
       </h2>
       <ul class="flex gap-x-4">
         <Skills />

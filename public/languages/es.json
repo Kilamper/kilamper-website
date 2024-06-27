@@ -1,0 +1,26 @@
+{
+    "header": {
+        "home": "Inicio",
+        "projects": "Proyectos",
+        "about": "Sobre mi",
+        "contact": "Contacto"
+    },
+    "main": {
+        "title": "Hola",
+        "name": "Soy Kilian Armas",
+        "subtitle": "Estudiante de Ingeniería Informática en la ULPGC. ",
+        "description": "Ingeniero de Software y Desarrollador Web de las Islas Canarias, España."
+    },
+    "projects": {
+        "title": "Proyectos",
+        "Image Viewer MVC": "Aplicación de visualización de imágenes con patrón de diseño MVC en Java.",
+        "Money Calculator": "Conversor de monedaos con API de cambio de divisas en Java.",
+        "LabrArte Website": "Sitio web de la empresa de artesanía LabrArte realizado con Angular, Tailwind CSS y Firebase."
+    },
+    "about": {
+        "title": "Sobre mi",
+        "description1": "Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería Informática en la Universidad de Las Palmas de Gran Canaria. Actualmente me encuentro a punto de pasar al último año de la carrera.",
+        "description2": "Me apasiona el desarrollo web y la programación en general. Me gusta aprender cosas nuevas y estar al día en las últimas tecnologías. Siempre estoy buscando nuevos proyectos en los que trabajar y aprender.",
+        "skills": "Habilidades"
+    }
+}

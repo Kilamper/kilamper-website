@@ -4,22 +4,22 @@ import ThemeToggle from "./ThemeToggle.astro";
 const navItems = [
   {
     title: "Inicio",
-    label: "inicio",
+    label: "home",
     url: "/",
   },
   {
     title: "Proyectos",
-    label: "proyectos",
+    label: "projects",
     url: "/#projects",
   },
   {
     title: "Sobre mí",
-    label: "sobre-mi",
+    label: "about",
     url: "/#about",
   },
   {
     title: "Contacto",
-    label: "contacto",
+    label: "contact",
     url: "mailto:kilamper@gmail.com.com",
   },
 ];
@@ -29,7 +29,7 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center gap-4"
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[480px] justify-between"
   >
     {
       navItems.map((link) => (
@@ -37,12 +37,32 @@ const navItems = [
           class="relative block py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
           aria-label={link.label}
           href={link.url}
+          data-section="header"
+          data-value={link.label}
         >
           {link.title}
         </a>
       ))
     }
     <ThemeToggle />
+    <div id="flags" class="flags flex items-center gap-4">
+      <div id="flag_item" class="w-7 hover:scale-110 transition cursor-pointer">
+        <img
+          src="flags/es.svg"
+          alt="Spain Flag"
+          class="w-auto rounded-sm"
+          data-language="es"
+        />
+      </div>
+      <div id="flag_item" class="w-7 hover:scale-110 transition cursor-pointer">
+        <img
+          src="flags/en.svg"
+          alt="United Kingdom Flag"
+          class="w-auto rounded-sm"
+          data-language="en"
+        />
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -85,6 +105,27 @@ const navItems = [
         });
       }
     };
+  });
+  const flagsElement = document.getElementById("flags");
+
+  const textsToChange = document.querySelectorAll("[data-section]");
+
+  const changeLanguage = async (language) => {
+    const requestJson = await fetch(`languages/${language}.json`);
+    const texts = await requestJson.json();
+
+    for (const textToChange of textsToChange) {
+      const section = textToChange.getAttribute("data-section");
+      const value = textToChange.getAttribute("data-value");
+      textToChange.textContent = texts[section][value];
+    }
+  };
+
+  flagsElement.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    if (target.tagName === "IMG") {
+      changeLanguage(target.getAttribute("data-language"));
+    }
   });
 </script>
 
