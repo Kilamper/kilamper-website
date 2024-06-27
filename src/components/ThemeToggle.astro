@@ -1,113 +1,67 @@
----
-const THEMES = ["Light", "Dark", "System"];
----
-
-<div class="relative ml-1 mr-1">
-  <button
-    id="theme-toggle-btn"
-    class="appearance-none border-none flex hover:scale-125 transition"
-  >
-    <span class="sr-only">Elige el tema</span>
-    <i
-      id="light"
-      class="fa-regular fa-sun theme-toggle-icon size-5 transition-all"></i>
-    <i
-      id="dark"
-      class="fa-regular fa-moon theme-toggle-icon absolute size-5 transition-all"
-    ></i>
-    <i
-      id="system"
-      class="fa-solid fa-desktop theme-toggle-icon absolute size-5 transition-all"
-    ></i>
-  </button>
+<div class="flex items-center justify-center gap-2">
   <div
-    id="themes-menu"
-    class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+    id="container"
+    class="bg-[#f8f8f8] relative w-12 h-6 mt-80 mx-auto cursor-pointer hover:bg-gray-300"
   >
-    <ul>
-      {
-        THEMES.map((theme) => (
-          <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
-            {theme}
-          </li>
-        ))
-      }
-    </ul>
+    <div class="toggle absolute top-0 left-0 w-6 h-6"></div>
   </div>
+  <i id="sun" class="fa-regular fa-sun hidden"></i>
+  <i id="moon" class="fa-solid fa-moon"></i>
 </div>
-
 <style>
-  #themes-menu.open {
-    display: inline;
-    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 
-  @keyframes scale-up-center {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
+  #container {
+    box-shadow:
+      inset 4px 4px 6px #cecece,
+      inset -4px -4px 6px #ffffff;
+    border-radius: 25px;
+  }
 
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+  .toggle {
+    transform: scale(0.7);
+    background-color: #242424;
+    border-radius: 25px;
+    box-shadow:
+      3px 3px 8px #c4c4c4,
+      -3px -3px 8px #ffffff;
+  }
+
+  #container.active .toggle {
+    left: 24px;
+    background-color: #c2c2c2;
   }
 </style>
+<script>
+  const toggle = document.getElementById("container");
+  const sun = document.getElementById("sun");
+  const moon = document.getElementById("moon");
 
-<script is:inline>
-  let remove = null;
-  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-  const themesMenu = document.getElementById("themes-menu");
-
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("theme") ?? "system";
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
+  const toggleTheme = () => {
+    const currentTheme = document.body.classList.contains("dark")
       ? "dark"
       : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    document.body.classList.remove(currentTheme);
+    document.body.classList.add(newTheme);
+
+    localStorage.setItem("theme", newTheme);
   };
 
-  const updateIcon = (themePreference) => {
-    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
-      element.style.scale = element.id === themePreference ? "1" : "0";
-    });
-  };
-
-  const updateTheme = () => {
-    if (remove != null) {
-      remove();
-    }
-    matchMedia.addEventListener("change", updateTheme);
-    remove = () => {
-      matchMedia.removeEventListener("change", updateTheme);
-    };
-
-    const themePreference = getThemePreference();
-    const isDark =
-      themePreference === "dark" ||
-      (themePreference === "system" && matchMedia.matches);
-
-    updateIcon(themePreference);
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-  };
-
-  updateTheme();
-
-  document.addEventListener("click", () => themesMenu.classList.remove("open"));
-
-  document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isClosed = !themesMenu.classList.contains("open");
-    themesMenu.classList[isClosed ? "add" : "remove"]("open");
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.classList.add(savedTheme);
   });
 
-  document.querySelectorAll(".themes-menu-option").forEach((element) => {
-    element.addEventListener("click", (e) => {
-      localStorage.setItem("theme", e.target.innerText.toLowerCase().trim());
-      updateTheme();
-    });
-  });
+  toggle.onclick = function () {
+    toggle.classList.toggle("active");
+    sun.classList.toggle("hidden");
+    moon.classList.toggle("hidden");
+    toggleTheme();
+  };
 </script>
