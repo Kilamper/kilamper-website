@@ -22,5 +22,8 @@
         "description1": "Me llamo Kilian Armas Pérez, y soy estudiante de Ingeniería Informática en la Universidad de Las Palmas de Gran Canaria. Actualmente me encuentro a punto de pasar al último año de la carrera.",
         "description2": "Me apasiona el desarrollo web y la programación en general. Me gusta aprender cosas nuevas y estar al día en las últimas tecnologías. Siempre estoy buscando nuevos proyectos en los que trabajar y aprender.",
         "skills": "Habilidades"
+    },
+    "footer": {
+        "technologies": "Página hecha con Astro y Tailwind CSS"
     }
 }

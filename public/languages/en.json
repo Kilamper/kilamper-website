@@ -22,5 +22,8 @@
         "description1": "My name is Kilian Armas Pérez, and I am a Computer Engineering student at the University of Las Palmas de Gran Canaria. I am currently about to enter the last year of the degree.",
         "description2": "I am passionate about web development and programming in general. I like to learn new things and keep up to date with the latest technologies. I am always looking for new projects to work on and learn.",
         "skills": "Skills"
+    },
+    "footer": {
+        "technologies": "Page made with Astro and Tailwind CSS"
     }
 }
