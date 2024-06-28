@@ -31,22 +31,38 @@ const navItems = [
   <nav
     class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[480px] justify-between"
   >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
-          aria-label={link.label}
-          href={link.url}
-          data-section="header"
-          data-value={link.label}
-        >
-          {link.title}
-        </a>
-      ))
-    }
+    <button
+      id="burger-menu"
+      class="inline-flex items-center w-10 h-10 justify-center text-base text-gray-600 dark:text-gray-200 rounded-lg lg:hidden hover:text-blue-500 fas fa-bars"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+    </button>
+    <div
+      class="hidden absolute lg:relative mt-48 lg:mt-0 w-fit lg:w-full lg:flex lg:justify-between shadow-lg lg:shadow-none backdrop-blur bg-white/50 lg:bg-transparent rounded-md"
+      id="navbar-dropdown"
+    >
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block py-2 transition hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-300 lg:hover:bg-transparent pl-2 pr-6 lg:pr-2 rounded-md"
+            aria-label={link.label}
+            href={link.url}
+            data-section="header"
+            data-value={link.label}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </div>
     <ThemeToggle />
     <div id="flags" class="flags flex items-center gap-4">
-      <div id="flag_item" class="w-7 hover:scale-110 transition cursor-pointer">
+      <div
+        id="flag_item"
+        class="w-7 hover:scale-110 transition cursor-pointer"
+        title="Español"
+      >
         <img
           src="flags/es.svg"
           alt="Spain Flag"
@@ -54,7 +70,11 @@ const navItems = [
           data-language="es"
         />
       </div>
-      <div id="flag_item" class="w-7 hover:scale-110 transition cursor-pointer">
+      <div
+        id="flag_item"
+        class="w-7 hover:scale-110 transition cursor-pointer"
+        title="English"
+      >
         <img
           src="flags/en.svg"
           alt="United Kingdom Flag"
@@ -106,6 +126,20 @@ const navItems = [
       }
     };
   });
+
+  const burgerMenu = document.getElementById("burger-menu");
+  const navbarDropdown = document.getElementById("navbar-dropdown");
+
+  burgerMenu.addEventListener("click", () => {
+    navbarDropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target !== burgerMenu && event.target !== navbarDropdown) {
+      navbarDropdown.classList.add("hidden");
+    }
+  });
+
   const flagsElement = document.getElementById("flags");
 
   const textsToChange = document.querySelectorAll("[data-section]");
