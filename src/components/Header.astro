@@ -33,6 +33,7 @@ const navItems = [
   >
     <button
       id="burger-menu"
+      aria-label="Main menu"
       class="inline-flex items-center w-10 h-10 justify-center text-base text-gray-600 dark:text-gray-200 rounded-lg lg:hidden hover:text-blue-500 fas fa-bars"
       aria-controls="mobile-menu"
       aria-expanded="false"
@@ -66,7 +67,7 @@ const navItems = [
         <img
           src="flags/es.svg"
           alt="Spain Flag"
-          class="w-auto rounded-sm"
+          class="w-7 rounded-sm"
           data-language="es"
         />
       </div>
@@ -78,7 +79,7 @@ const navItems = [
         <img
           src="flags/en.svg"
           alt="United Kingdom Flag"
-          class="w-auto rounded-sm"
+          class="w-7 rounded-sm"
           data-language="en"
         />
       </div>
@@ -151,7 +152,7 @@ const navItems = [
     for (const textToChange of textsToChange) {
       const section = textToChange.getAttribute("data-section");
       const value = textToChange.getAttribute("data-value");
-      textToChange.textContent = texts[section][value];
+      textToChange.innerHTML = texts[section][value];
     }
   };
 

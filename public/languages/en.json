@@ -8,19 +8,19 @@
     "main": {
         "title": "Hello there",
         "name": "I'm Kilian Armas",
-        "subtitle": "Computer Engineering Student at ULPGC. ",
-        "description": "Software Engineer and Web Developer from the Canary Islands, Spain."
+        "description": "<span class='text-blue-500 font-medium'>Computer Engineering Student at ULPGC. </span> Software Engineer and Web Developer from the Canary Islands, Spain."
     },
     "projects": {
         "title": "Projects",
+        "code": "Code",
+        "download": "Download",
         "Image Viewer MVC": "Image viewer application with MVC design pattern in Java.",
         "Money Calculator": "Currency converter with currency exchange API in Java.",
         "LabrArte Website": "LabrArte's craft company website made with Angular, Tailwind CSS and Firebase."
     },
     "about": {
         "title": "About me",
-        "description1": "My name is Kilian Armas Pérez, and I am a Computer Engineering student at the University of Las Palmas de Gran Canaria. I am currently about to enter the last year of the degree.",
-        "description2": "I am passionate about web development and programming in general. I like to learn new things and keep up to date with the latest technologies. I am always looking for new projects to work on and learn.",
+        "description": "My name is Kilian Armas Pérez, and I am a Computer Engineering student at the University of Las Palmas de Gran Canaria. I am currently about to enter the last year of the degree. <br /> <br /> I am passionate about web development and programming in general. I like to learn new things and keep up to date with the latest technologies. I am always looking for new projects to work on and learn.",
         "skills": "Skills"
     },
     "footer": {

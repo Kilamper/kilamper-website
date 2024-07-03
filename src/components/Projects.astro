@@ -102,12 +102,16 @@ const PROJECTS = [
           <nav class="flex gap-x-4">
             <SocialBox href={github}>
               <i class="fa-brands fa-github" />
-              Code
+              <span data-section="projects" data-value="code">
+                Código
+              </span>
             </SocialBox>
             {download && (
               <SocialBox href={download}>
                 <i class="fa-solid fa-download" />
-                Download
+                <span data-section="projects" data-value="download">
+                  Descargar
+                </span>
               </SocialBox>
             )}
           </nav>
