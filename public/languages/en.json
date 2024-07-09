@@ -14,6 +14,7 @@
         "title": "Projects",
         "code": "Code",
         "download": "Download",
+        "link": "Preview",
         "Image Viewer MVC": "Image viewer application with MVC design pattern in Java.",
         "Money Calculator": "Currency converter with currency exchange API in Java.",
         "LabrArte Website": "LabrArte's craft company website made with Angular, Tailwind CSS and Firebase."

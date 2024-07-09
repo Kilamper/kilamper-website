@@ -60,6 +60,7 @@ const PROJECTS = [
       "Sitio web de la tienda de artesanía LabrArte con Angular, Tailwind CSS y Firebase.",
     image: "projects/labrarte-website.webp",
     github: "https://github.com/Kilamper/web-page",
+    link: "https://labrarte.netlify.app/",
     tags: [TAGS.ANGULAR, TAGS.TAILWIND, TAGS.FIREBASE],
   },
 ];
@@ -111,6 +112,14 @@ const PROJECTS = [
                 <i class="fa-solid fa-download" />
                 <span data-section="projects" data-value="download">
                   Descargar
+                </span>
+              </SocialBox>
+            )}
+            {link && (
+              <SocialBox href={link}>
+                <i class="fa-solid fa-external-link" />
+                <span data-section="projects" data-value="link">
+                  Vista previa
                 </span>
               </SocialBox>
             )}
