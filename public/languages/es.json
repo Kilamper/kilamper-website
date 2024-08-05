@@ -8,7 +8,7 @@
     "main": {
         "title": "Hola",
         "name": "Soy Kilian Armas",
-        "description": "<span class='text-blue-500 font-medium'>Estudiante de Ingeniería Informática en la ULPGC. </span>Ingeniero de Software y Desarrollador Web de las Islas Canarias, España."
+        "description": "<span class='text-blue-500 font-medium'>Estudiante de Ingeniería Informática en la ULPGC. </span>Ingeniero de Software y Desarrollador Web de las Islas Canarias <img src='flags/ic.svg' alt='Canary Islands Flag' class='w-7 rounded-sm inline-block' /> , España."
     },
     "projects": {
         "title": "Proyectos",

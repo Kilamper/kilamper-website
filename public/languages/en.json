@@ -8,7 +8,7 @@
     "main": {
         "title": "Hello there",
         "name": "I'm Kilian Armas",
-        "description": "<span class='text-blue-500 font-medium'>Computer Engineering Student at ULPGC. </span> Software Engineer and Web Developer from the Canary Islands, Spain."
+        "description": "<span class='text-blue-500 font-medium'>Computer Engineering Student at ULPGC. </span> Software Engineer and Web Developer from the Canary Islands <img src='flags/ic.svg' alt='Canary Islands Flag' class='w-7 rounded-sm inline-block' /> , Spain."
     },
     "projects": {
         "title": "Projects",
