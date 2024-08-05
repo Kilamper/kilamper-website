@@ -11,20 +11,17 @@ import Skills from "../components/Skills.astro";
   description="Porfolio de Kilian Armas Pérez, estudiante de la Universidad de Las Palmas de Gran Canaria. Ingeniero de Software y Desarrollador Web."
 >
   <main class="flex flex-col px-4 w-full lg:w-[920px] mx-auto gap-y-32">
-    <section id="home" class="pt-40 pb-10 flex">
+    <section
+      id="home"
+      class="pt-40 pb-10 flex flex-col lg:flex-row items-center justify-center gap-x-4 gap-y-10"
+    >
       <article>
         <h1
           class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
         >
           <span data-section="main" data-value="name"
             >Hola, soy Kilian Armas</span
-          ><div class="flex justify-center items-center">
-            <img
-              class="rounded-full size-24"
-              src="https://avatars.githubusercontent.com/u/73082382?v=4"
-              alt="Profile Image"
-            />
-          </div>
+          >
         </h1>
         <h2
           class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-black dark:text-white"
@@ -54,6 +51,18 @@ import Skills from "../components/Skills.astro";
           >
         </nav>
       </article>
+      <div class="flex justify-center items-center relative">
+        <img
+          class="w-[160px] h-auto z-[1] absolute pt-[68px] reflection"
+          src="profile-image.png"
+          alt="Profile Image"
+        />
+        <img
+          class="w-[360px] h-auto z-[2] reflection"
+          src="portal.png"
+          alt="Portal Image"
+        />
+      </div>
     </section>
     <section id="projects" class="">
       <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
@@ -71,7 +80,7 @@ import Skills from "../components/Skills.astro";
           data-value="title">Sobre mí</span
         >
       </h2>
-      <article class="flex flex-col md:flex-row gap-x-10">
+      <article class="flex flex-col lg:flex-row gap-x-10">
         <div class="flex flex-col gap-8 lg:w-2/3">
           <p
             class="text-black dark:text-white text-lg"
@@ -90,9 +99,13 @@ import Skills from "../components/Skills.astro";
           </p>
         </div>
         <div
-          class="self-center order-1 lg:w-1/3 lg:order-2 lg:p-2 w-64 h-full mt-2 lg:mt-0 mb-20 lg:mb-6"
+          class="self-center order-1 lg:w-1/3 lg:order-2 lg:p-2 w-64 h-full mt-6 lg:mt-0 mb-20 lg:mb-6"
         >
-          <img src="Kilian_Armas.png" alt="Kilian Armas" class="rounded-2xl" />
+          <img
+            src="About.png"
+            alt="Person programming"
+            class="drop-shadow-md"
+          />
         </div>
       </article>
       <h2
@@ -109,3 +122,17 @@ import Skills from "../components/Skills.astro";
     </section>
   </main>
 </Layout>
+<style>
+  .reflection {
+    -webkit-box-reflect: below 0px
+      linear-gradient(
+        transparent,
+        transparent,
+        transparent,
+        transparent,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.7)
+      );
+  }
+</style>
