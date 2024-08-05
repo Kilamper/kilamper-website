@@ -10,18 +10,18 @@ import Skills from "../components/Skills.astro";
   title="Kilamper Porfolio | Ingeniero de Software y Desarrollador Web"
   description="Porfolio de Kilian Armas Pérez, estudiante de la Universidad de Las Palmas de Gran Canaria. Ingeniero de Software y Desarrollador Web."
 >
-  <main class="flex flex-col px-4 w-full lg:w-[920px] mx-auto gap-y-32">
+  <main class="flex flex-col px-4 w-full gap-y-32">
     <section
       id="home"
-      class="pt-40 pb-10 flex flex-col lg:flex-row items-center justify-center gap-x-4 gap-y-10"
+      class="mt-10 py-32 flex flex-col lg:flex-row items-center justify-center gap-x-4 gap-y-10 lg:w-[1060px] mx-auto"
     >
       <article>
         <h1
           class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 items-center"
+          data-section="main"
+          data-value="name"
         >
-          <span data-section="main" data-value="name"
-            >Hola, soy Kilian Armas</span
-          >
+          Hola, soy Kilian Armas
         </h1>
         <h2
           class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-black dark:text-white"
@@ -49,22 +49,20 @@ import Skills from "../components/Skills.astro";
               class="size-4 fill-dark dark:fill-white"
             />Glitch</SocialBox
           >
+          <SocialBox
+            ><i class="fa-regular fa-file-lines"></i>Descargar CV</SocialBox
+          >
         </nav>
       </article>
       <div class="flex justify-center items-center relative">
         <img
-          class="w-[160px] h-auto z-[1] absolute pt-[68px] reflection"
+          class="w-80 h-auto reflection"
           src="profile-image.png"
           alt="Profile Image"
         />
-        <img
-          class="w-[360px] h-auto z-[2] reflection"
-          src="portal.png"
-          alt="Portal Image"
-        />
       </div>
     </section>
-    <section id="projects" class="">
+    <section id="projects" class="lg:w-[920px] mx-auto">
       <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
         <i class="fa-solid fa-code mr-2"></i><span
           data-section="projects"
@@ -73,7 +71,7 @@ import Skills from "../components/Skills.astro";
       </h2>
       <Projects />
     </section>
-    <section id="about" class="pb-32">
+    <section id="about" class="pb-32 lg:w-[920px] mx-auto">
       <h2 class="text-3xl font-semibold text-gray-900 dark:text-white pb-4">
         <i class="fa-regular fa-address-card mr-2"></i><span
           data-section="about"
