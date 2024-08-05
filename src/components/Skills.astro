@@ -2,7 +2,6 @@
 import Python from "./icons/Python.astro";
 import Java from "./icons/Java.astro";
 import C from "./icons/C.astro";
-import Cplusplus from "./icons/C++.astro";
 import HTML from "./icons/HTML.astro";
 import CSS from "./icons/CSS.astro";
 import JavaScript from "./icons/JavaScript.astro";
@@ -10,6 +9,8 @@ import TypeScript from "./icons/TypeScript.astro";
 import AstroIcon from "./icons/AstroIcon.astro";
 import Angular from "./icons/Angular.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import GitHub from "./icons/GitHub.astro";
+import VisualStudio from "./icons/VisualStudio.astro";
 
 const SKILLS = [
   {
@@ -23,10 +24,6 @@ const SKILLS = [
   {
     name: "C",
     icon: C,
-  },
-  {
-    name: "C++",
-    icon: Cplusplus,
   },
   {
     name: "HTML",
@@ -56,12 +53,20 @@ const SKILLS = [
     name: "Tailwind CSS",
     icon: Tailwind,
   },
+  {
+    name: "GitHub",
+    icon: GitHub,
+  },
+  {
+    name: "Visual Studio Code",
+    icon: VisualStudio,
+  },
 ];
 ---
 
 {
   SKILLS.map((skill) => (
-    <li class="flex flex-col justify-center items-center text-center">
+    <li class="flex flex-col justify-center items-center text-center drop-shadow-md">
       <div title={skill.name} class="w-fit">
         <skill.icon class="h-14 w-auto" />
       </div>
