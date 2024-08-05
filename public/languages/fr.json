@@ -1,0 +1,29 @@
+{
+    "header": {
+        "home": "Début",
+        "projects": "Projets",
+        "about": "Sour moi",
+        "contact": "Contact"
+    },
+    "main": {
+        "name": "Salut, je suis Kilian Armas",
+        "description": "<span class='text-blue-500 font-medium'>Étudiant en Génie Informatique à l'ULPGC. </span> Ingénieur Logiciel et Développeur Web des îles Canaries <img src='flags/ic.svg' alt='Drapeau des îles Canaries' class='w-7 rounded-sm inline-block' /> , Espagne."
+    },
+    "projects": {
+        "title": "Projets",
+        "code": "Code",
+        "download": "Télécharger",
+        "link": "Aperçu",
+        "Image Viewer MVC": "Application de visualisation d'images avec modèle de conception MVC en Java.",
+        "Money Calculator": "Convertisseur de devises avec API de change de devises en Java.",
+        "LabrArte Website": "Site web de l'entreprise artisanale LabrArte réalisé avec Angular, Tailwind CSS et Firebase."
+    },
+    "about": {
+        "title": "Sour moi",
+        "description": "Je m'appelle Kilian Armas Pérez, et je suis étudiant en génie informatique à l'Université de Las Palmas de Gran Canaria. Je suis actuellement sur le point d'entrer en dernière année de la licence. <br /> <br /> Je suis passionné par le développement web et la programmation en général. J'aime apprendre de nouvelles choses et me tenir au courant des dernières technologies. Je suis toujours à la recherche de nouveaux projets sur lesquels travailler et apprendre.",
+        "skills": "Compétences"
+    },
+    "footer": {
+        "technologies": "Page réalisée avec Astro et Tailwind CSS"
+    }
+}

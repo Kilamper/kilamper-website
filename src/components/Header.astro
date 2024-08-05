@@ -29,7 +29,7 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[480px] justify-between"
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[520px] justify-between"
   >
     <button
       id="burger-menu"
@@ -67,7 +67,7 @@ const navItems = [
         <img
           src="flags/es.svg"
           alt="Spain Flag"
-          class="w-7 rounded-sm"
+          class="w-7 rounded-sm drop-shadow-sm"
           data-language="es"
         />
       </div>
@@ -79,8 +79,20 @@ const navItems = [
         <img
           src="flags/en.svg"
           alt="United Kingdom Flag"
-          class="w-7 rounded-sm"
+          class="w-7 rounded-sm drop-shadow-sm"
           data-language="en"
+        />
+      </div>
+      <div
+        id="flag_item"
+        class="w-7 hover:scale-110 transition cursor-pointer"
+        title="Français"
+      >
+        <img
+          src="flags/fr.svg"
+          alt="France Flag"
+          class="w-7 rounded-sm drop-shadow-sm"
+          data-language="fr"
         />
       </div>
     </div>
