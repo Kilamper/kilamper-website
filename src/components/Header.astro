@@ -40,13 +40,13 @@ const navItems = [
     >
     </button>
     <div
-      class="hidden absolute lg:relative mt-48 lg:mt-0 w-fit lg:w-full lg:flex lg:justify-between shadow-lg lg:shadow-none bg-white/50 lg:bg-transparent rounded-md"
+      class="hidden absolute lg:relative mt-48 lg:mt-0 w-fit lg:w-full lg:flex lg:justify-between bg-gray-300 dark:bg-gray-800 lg:bg-transparent dark:lg:bg-transparent rounded-md"
       id="navbar-dropdown"
     >
       {
         navItems.map((link) => (
           <a
-            class="relative block py-2 transition hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-300 lg:hover:bg-transparent pl-2 pr-6 lg:pr-2 rounded-md"
+            class="relative block py-2 transition hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-400 hover:dark:bg-gray-300 lg:hover:bg-transparent lg:dark:hover:bg-transparent pl-2 pr-6 lg:pr-2 rounded-md"
             aria-label={link.label}
             href={link.url}
             data-section="header"
@@ -58,43 +58,33 @@ const navItems = [
       }
     </div>
     <ThemeToggle />
-    <div id="flags" class="flags flex items-center gap-4">
-      <div
-        id="flag_item"
-        class="w-7 hover:scale-110 transition cursor-pointer"
-        title="Español"
+    <div class="relative inline-block text-left w-44">
+      <select
+        id="language-select"
+        class="block w-fit pl-3 pr-2 py-2 rounded-md bg-transparent"
       >
-        <img
-          src="flags/es.svg"
-          alt="Spain Flag"
-          class="w-7 rounded-sm drop-shadow-sm"
+        <option
+          value="es"
           data-language="es"
-        />
-      </div>
-      <div
-        id="flag_item"
-        class="w-7 hover:scale-110 transition cursor-pointer"
-        title="English"
-      >
-        <img
-          src="flags/en.svg"
-          alt="United Kingdom Flag"
-          class="w-7 rounded-sm drop-shadow-sm"
+          class="bg-gray-300 dark:bg-gray-800"
+        >
+          Español
+        </option>
+        <option
+          value="en"
           data-language="en"
-        />
-      </div>
-      <div
-        id="flag_item"
-        class="w-7 hover:scale-110 transition cursor-pointer"
-        title="Français"
-      >
-        <img
-          src="flags/fr.svg"
-          alt="France Flag"
-          class="w-7 rounded-sm drop-shadow-sm"
+          class="bg-gray-300 dark:bg-gray-800"
+        >
+          English
+        </option>
+        <option
+          value="fr"
           data-language="fr"
-        />
-      </div>
+          class="bg-gray-300 dark:bg-gray-800"
+        >
+          Français
+        </option>
+      </select>
     </div>
   </nav>
 </header>
@@ -153,26 +143,25 @@ const navItems = [
     }
   });
 
-  const flagsElement = document.getElementById("flags");
+  document.addEventListener("DOMContentLoaded", () => {
+    const languageSelect = document.getElementById("language-select");
+    const textsToChange = document.querySelectorAll("[data-section]");
 
-  const textsToChange = document.querySelectorAll("[data-section]");
+    const changeLanguage = async (language) => {
+      const requestJson = await fetch(`languages/${language}.json`);
+      const texts = await requestJson.json();
 
-  const changeLanguage = async (language) => {
-    const requestJson = await fetch(`languages/${language}.json`);
-    const texts = await requestJson.json();
+      for (const textToChange of textsToChange) {
+        const section = textToChange.getAttribute("data-section");
+        const value = textToChange.getAttribute("data-value");
+        textToChange.innerHTML = texts[section][value];
+      }
+    };
 
-    for (const textToChange of textsToChange) {
-      const section = textToChange.getAttribute("data-section");
-      const value = textToChange.getAttribute("data-value");
-      textToChange.innerHTML = texts[section][value];
-    }
-  };
-
-  flagsElement.addEventListener("click", (event) => {
-    const target = event.target as HTMLElement;
-    if (target.tagName === "IMG") {
-      changeLanguage(target.getAttribute("data-language"));
-    }
+    languageSelect.addEventListener("change", (event) => {
+      const selectedLanguage = (event.target as HTMLSelectElement).value;
+      changeLanguage(selectedLanguage);
+    });
   });
 </script>
 
