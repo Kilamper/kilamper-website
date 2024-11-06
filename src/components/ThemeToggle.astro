@@ -1,45 +1,74 @@
 <div class="flex items-center justify-center gap-2">
-  <div
-    id="container"
-    class="bg-[#f8f8f8] relative w-12 h-6 mt-80 mx-auto cursor-pointer hover:bg-gray-300"
-  >
-    <div class="toggle absolute top-0 left-0 w-6 h-6"></div>
-  </div>
-  <i id="sun" class="fa-regular fa-sun hidden"></i>
-  <i id="moon" class="fa-solid fa-moon"></i>
+  <label class="switch">
+    <input id="switch" type="checkbox" checked />
+    <span class="slider"></span>
+  </label>
 </div>
 <style>
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  /* The switch - the box around the slider */
+  .switch {
+    display: block;
+    --width-of-switch: 3.5em;
+    --height-of-switch: 1.8em;
+    /* size of sliding icon -- sun and moon */
+    --size-of-icon: 1.2em;
+    /* it is like a inline-padding of switch */
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
   }
 
-  #container {
-    box-shadow:
-      inset 4px 4px 6px #cecece,
-      inset -4px -4px 6px #ffffff;
-    border-radius: 25px;
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
 
-  .toggle {
-    transform: scale(0.7);
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cacaca;
+    transition: 0.4s;
+    border-radius: 30px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon, 1.2em);
+    width: var(--size-of-icon, 1.2em);
+    border-radius: 20px;
+    left: var(--slider-offset, 0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
     background-color: #242424;
-    border-radius: 25px;
-    box-shadow:
-      3px 3px 8px #c4c4c4,
-      -3px -3px 8px #ffffff;
   }
 
-  #container.active .toggle {
-    left: 24px;
-    background-color: #c2c2c2;
+  input:checked + .slider:before {
+    left: calc(
+      100% - (var(--size-of-icon, 1.2em) + var(--slider-offset, 0.3em))
+    );
+    background: #242424;
+    /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+    box-shadow:
+      inset -3px -2px 5px -2px #8983f7,
+      inset -10px -4px 0 0 #a3dafb;
   }
 </style>
 <script>
-  const toggle = document.getElementById("container");
-  const sun = document.getElementById("sun");
-  const moon = document.getElementById("moon");
+  const toggle = document.getElementById("switch") as HTMLInputElement;
 
   const toggleTheme = () => {
     const currentTheme = document.body.classList.contains("dark")
@@ -51,6 +80,7 @@
     document.body.classList.add(newTheme);
 
     localStorage.setItem("theme", newTheme);
+    toggle.checked = newTheme === "dark";
   };
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -60,8 +90,6 @@
 
   toggle.onclick = function () {
     toggle.classList.toggle("active");
-    sun.classList.toggle("hidden");
-    moon.classList.toggle("hidden");
     toggleTheme();
   };
 </script>
