@@ -1,0 +1,74 @@
+---
+import Glitch from "../components/icons/Glitch.astro";
+import Curriculum from "./icons/Curriculum.astro";
+---
+
+<div {...Astro.props}>
+  <div
+    id="github"
+    class="social-btn size-12 rounded-lg m-1.5 flex justify-center items-center bg-indigo-50 dark:bg-indigo-950 text-gray-800 dark:text-white cursor-pointer hover:w-fit hover:rounded hover:px-3"
+  >
+    <i class="fa-brands fa-github dark:text-white text-2xl"></i><a
+      href="https://github.com/Kilamper"
+      target="_blank"
+      class="w-0 overflow-hidden text-center ml-1 font-semibold">GitHub</a
+    >
+  </div>
+  <div
+    id="linkedin"
+    class="social-btn size-12 rounded-lg m-1.5 flex justify-center items-center bg-indigo-50 dark:bg-indigo-950 text-gray-800 dark:text-white cursor-pointer hover:w-fit hover:rounded hover:px-3"
+  >
+    <i class="fa-brands fa-linkedin text-blue-600 text-2xl"></i><a
+      href="https://www.linkedin.com/in/kilamper"
+      target="_blank"
+      class="w-0 overflow-hidden text-center ml-1 font-semibold">LinkedIn</a
+    >
+  </div>
+  <div
+    id="glitch"
+    class="social-btn size-12 rounded-lg m-1.5 flex justify-center items-center bg-indigo-50 dark:bg-indigo-950 text-gray-800 dark:text-white cursor-pointer hover:w-fit hover:rounded hover:px-3"
+  >
+    <Glitch class="size-6" />
+    <a
+      href="https://glitch.com/@kilamper"
+      target="_blank"
+      class="w-0 overflow-hidden text-center ml-1 font-semibold">Glitch</a
+    >
+  </div>
+  <div
+    id="curriculum"
+    class="curriculum-btn h-12 w-fit rounded-lg m-1.5 flex justify-center items-center bg-indigo-50 dark:bg-indigo-950 text-gray-800 dark:text-white cursor-pointer hover:w-fit hover:rounded px-3"
+  >
+    <i class="fa-regular fa-file-lines text-2xl"></i>
+    <a
+      class="text-center ml-1 font-semibold pl-1"
+      href="files/CV-Kilian_Armas_Perez.pdf"
+      download="CV-Kilian_Armas_Perez.pdf"
+      data-section="main"
+      data-value="curriculum">Descargar CV</a
+    >
+  </div>
+  <style>
+    .social-btn {
+      font-family: "Titillium Web", sans-serif;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .curriculum-btn {
+      font-family: "Titillium Web", sans-serif;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .social-btn a {
+      transition: 0.3s;
+    }
+
+    .social-btn:hover a {
+      padding: 1px;
+      padding-left: 4px;
+      width: fit-content;
+    }
+  </style>
+</div>

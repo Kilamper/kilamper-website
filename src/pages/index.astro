@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SocialBox from "../components/SocialBox.astro";
 import Projects from "../components/Projects.astro";
-import Glitch from "../components/icons/Glitch.astro";
 import Skills from "../components/Skills.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <Layout
@@ -37,26 +36,7 @@ import Skills from "../components/Skills.astro";
             class="w-7 rounded-sm inline-block drop-shadow-sm"
           /> , España.
         </h2>
-        <nav class="flex flex-wrap gap-4 mt-8">
-          <SocialBox href="https://github.com/Kilamper"
-            ><i class="fa-brands fa-github"></i>GitHub</SocialBox
-          >
-          <SocialBox href="https://www.linkedin.com/in/kilamper"
-            ><i class="fa-brands fa-linkedin"></i>Linkedin</SocialBox
-          >
-          <SocialBox href="https://glitch.com/@kilamper"
-            ><Glitch
-              class="size-4 fill-dark dark:fill-white"
-            />Glitch</SocialBox
-          >
-          <SocialBox
-            href="files/CV-Kilian_Armas_Perez.pdf"
-            download="CV-Kilian_Armas_Perez.pdf"
-            data-section="main"
-            data-value="curriculum"
-            ><i class="fa-regular fa-file-lines"></i>Descargar CV</SocialBox
-          >
-        </nav>
+        <SocialLinks class="flex justify-center items-center mt-8" />
       </article>
       <div class="flex justify-center items-center relative">
         <img

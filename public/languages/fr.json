@@ -8,7 +8,7 @@
     "main": {
         "name": "Salut, je suis Kilian Armas",
         "description": "<span class='text-blue-500 font-medium'>Étudiant en Génie Informatique à l'ULPGC. </span> Ingénieur Logiciel et Développeur Web des îles Canaries <img src='flags/ic.svg' alt='Drapeau des îles Canaries' class='w-7 rounded-sm inline-block' /> , Espagne.",
-        "curriculum": "<i class='fa-regular fa-file-lines'></i>Télécharger CV"
+        "curriculum": "Télécharger CV"
     },
     "projects": {
         "title": "Projets",
