@@ -31,14 +31,17 @@ const navItems = [
   <nav
     class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[520px] justify-between"
   >
-    <button
-      id="burger-menu"
-      aria-label="Main menu"
-      class="inline-flex items-center w-10 h-10 justify-center text-base text-gray-600 dark:text-gray-200 rounded-lg lg:hidden hover:text-blue-500 fas fa-bars"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-    >
-    </button>
+    <label class="burger hover:text-indigo-500" for="burger-menu">
+      <input
+        type="checkbox"
+        id="burger-menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      />
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
     <div
       class="hidden absolute lg:relative mt-48 lg:mt-0 w-fit lg:w-full lg:flex lg:justify-between bg-gray-300 dark:bg-gray-800 lg:bg-transparent dark:lg:bg-transparent rounded-md"
       id="navbar-dropdown"
@@ -133,13 +136,18 @@ const navItems = [
   const burgerMenu = document.getElementById("burger-menu");
   const navbarDropdown = document.getElementById("navbar-dropdown");
 
-  burgerMenu.addEventListener("click", () => {
+  burgerMenu.addEventListener("change", () => {
     navbarDropdown.classList.toggle("hidden");
   });
 
   document.addEventListener("click", (event) => {
-    if (event.target !== burgerMenu && event.target !== navbarDropdown) {
+    if (
+      event.target !== burgerMenu &&
+      (event.target as Element).closest(".burger") === null &&
+      event.target !== navbarDropdown
+    ) {
       navbarDropdown.classList.add("hidden");
+      (burgerMenu as HTMLInputElement).checked = false;
     }
   });
 
@@ -176,5 +184,65 @@ const navItems = [
     to {
       @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
     }
+  }
+
+  .burger {
+    position: relative;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+  }
+
+  .burger input {
+    display: none;
+  }
+
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 3px;
+  }
+
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 18px;
+    left: 3px;
   }
 </style>
