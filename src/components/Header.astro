@@ -31,12 +31,13 @@ const navItems = [
   <nav
     class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 items-center gap-4 w-[520px] justify-between"
   >
-    <label class="burger hover:text-indigo-500" for="burger-menu">
+    <label class="burger hover:text-indigo-500 lg:hidden" for="burger-menu">
       <input
         type="checkbox"
         id="burger-menu"
         aria-controls="mobile-menu"
         aria-expanded="false"
+        class="lg:hidden"
       />
       <span></span>
       <span></span>
@@ -244,5 +245,11 @@ const navItems = [
     transform: rotate(-45deg);
     top: 18px;
     left: 3px;
+  }
+
+  @media (min-width: 1024px) {
+    .burger {
+      display: none;
+    }
   }
 </style>
