@@ -62,10 +62,10 @@ const navItems = [
       }
     </div>
     <ThemeToggle />
-    <div class="text-left">
+    <div class="relative text-left">
       <select
         id="language-select"
-        class="block w-fit pl-3 pr-2 py-2 rounded-md bg-transparent"
+        class="block w-fit pl-3 pr-8 py-2 rounded-md bg-transparent text-gray-700 dark:text-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
       >
         <option
           value="es"
@@ -89,6 +89,19 @@ const navItems = [
           Français
         </option>
       </select>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-200"
+      >
+        <svg
+          class="fill-current h-4 w-4 transition-transform duration-200 transform"
+          id="language-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          ><path
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+          ></path></svg
+        >
+      </div>
     </div>
   </nav>
 </header>
@@ -154,6 +167,7 @@ const navItems = [
 
   document.addEventListener("DOMContentLoaded", () => {
     const languageSelect = document.getElementById("language-select");
+    const languageArrow = document.getElementById("language-arrow");
     const textsToChange = document.querySelectorAll("[data-section]");
 
     const changeLanguage = async (language) => {
@@ -170,6 +184,14 @@ const navItems = [
     languageSelect.addEventListener("change", (event) => {
       const selectedLanguage = (event.target as HTMLSelectElement).value;
       changeLanguage(selectedLanguage);
+    });
+
+    languageSelect.addEventListener("focus", () => {
+      languageArrow.classList.add("rotate-180");
+    });
+
+    languageSelect.addEventListener("blur", () => {
+      languageArrow.classList.remove("rotate-180");
     });
   });
 </script>
@@ -251,5 +273,11 @@ const navItems = [
     .burger {
       display: none;
     }
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 </style>
